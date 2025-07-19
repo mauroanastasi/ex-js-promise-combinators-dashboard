@@ -1,14 +1,21 @@
-const API_URL_DEST = (`http://localhost:3333`);
-// const API_URL_WEATH = `http://localhost:3333/weathers?search=${query}`;
+const API_URL = (`http://localhost:3333`);
 
-
-
-// const API_URL_AIRP = `http://localhost:3333/airports?search=${query}`;
 
 
 const getDashboardData = async query => {
-    const ric = await fetch(`${API_URL_DEST}/destinations?search=${query}`)
-    const data = ric.json()
+    let data = [];
+
+    const ric = await fetch(`${API_URL}/destinations?search=${query}`)
+    const risultato1 = ric.json()
+    data.push(risultato1)
+
+    const ricc = await fetch(`${API_URL}/weathers?search=${query}`)
+    const risultato2 = ricc.json()
+    data.push(risultato2)
+
+    const riccc = await fetch(`${API_URL}/airports?search=${query}`)
+    const risultato3 = riccc.json()
+    data.push(risultato3)
     console.log(data)
 }
 
