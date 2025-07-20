@@ -22,12 +22,22 @@ const getDashboardData = async query => {
 
 (async () => {
 
+    let contenitore = [];
 
     const nuovo = await getDashboardData(`london`)
 
-    const result = await Promise.all(nuovo)
+    const data = await Promise.all(nuovo)
 
+    contenitore = { city: data[0], country: data[1], temperature: data[2], weather: data[3], airport: data[4] }
 
-    console.log(result)
+    console.log(contenitore)
+
+    // console.log(
+    //     `${data.city} is in ${data.country}.\n` +
+    //     `Today there are ${data.temperature} degrees and the weather is ${data.weather}.\n` +
+    //     `The main airport is ${data.airport}.\n`
+    // );
+
+    // console.log(result)
 
 })();
